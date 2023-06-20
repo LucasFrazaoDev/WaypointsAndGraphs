@@ -17,7 +17,7 @@ public class FollowWP : MonoBehaviour
     private Graph graph;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         wps = wpManager.GetComponent<WPManager>().Waypoints;
         graph = wpManager.GetComponent<WPManager>().Graph;
@@ -48,7 +48,7 @@ public class FollowWP : MonoBehaviour
         currentWP = 0;
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
         if (graph.PathList.Count == 0 || currentWP == graph.PathList.Count)
             return;
