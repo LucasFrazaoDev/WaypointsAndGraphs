@@ -8,7 +8,7 @@ public class FollowWP : MonoBehaviour
     private Transform goal;
     private float speed = 8.0f;
     private float accuracy = 5.0f;
-    private float rotSpeed = 2.0f;
+    private float rotSpeed = 2.5f;
 
     [SerializeField] private GameObject wpManager;
     [SerializeField] private GameObject[] wps;
@@ -39,6 +39,12 @@ public class FollowWP : MonoBehaviour
     public void GoToFactory()
     {
         graph.AStar(currentNode, wps[2]);
+        currentWP = 0;
+    }
+
+    public void GoToOilField()
+    {
+        graph.AStar(currentNode, wps[5]);
         currentWP = 0;
     }
 
