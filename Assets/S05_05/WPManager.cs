@@ -6,23 +6,23 @@ using UnityEngine;
 public struct Link
 {
     public enum direction { UNI, BI}
-    [SerializeField] GameObject _node1;
-    [SerializeField] GameObject _node2;
-    [SerializeField] direction _dir;
+    [SerializeField] private GameObject _node1;
+    [SerializeField] private GameObject _node2;
+    [SerializeField] private direction _dir;
 
-    public GameObject Node1 { get => _node1; private set => _node1 = value; }
-    public GameObject Node2 { get => _node2; private set => _node2 = value; }
-    public direction Dir { get => _dir; private set => _dir = value; }
+    public GameObject Node1 { get => _node1; set => _node1 = value; }
+    public GameObject Node2 { get => _node2; set => _node2 = value; }
+    public direction Dir { get => _dir; set => _dir = value; }
 }
 
 public class WPManager : MonoBehaviour
 {
-    [SerializeField] private GameObject[] waypoints;
-    [SerializeField] private Link[] links;
-    private Graph graph = new Graph();
+    [SerializeField] private GameObject[] _waypoints;
+    [SerializeField] private Link[] _links;
+    private Graph _graph = new Graph();
 
-    public Graph Graph { get => graph; set => graph = value; }
-    public GameObject[] Waypoints { get => waypoints; set => waypoints = value; }
+    public Graph Graph { get => _graph; set => _graph = value; }
+    public GameObject[] Waypoints { get => _waypoints; set => _waypoints = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,7 @@ public class WPManager : MonoBehaviour
             {
                 Graph.AddNode(wp);
             }
-            foreach(Link l in links)
+            foreach(Link l in _links)
             {
                 Graph.AddEdge(l.Node1, l.Node2);
                 if(l.Dir == Link.direction.BI)

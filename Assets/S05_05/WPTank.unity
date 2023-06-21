@@ -1733,7 +1733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05383f8ce0f4e7c49b3d581b329687ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
+  _waypoints:
   - {fileID: 1833263382}
   - {fileID: 177039028}
   - {fileID: 1627803854}
@@ -1743,34 +1743,43 @@ MonoBehaviour:
   - {fileID: 187837488}
   - {fileID: 1858619307}
   - {fileID: 293255522}
-  links:
-  - _node1: {fileID: 0}
-    _node2: {fileID: 0}
-    _dir: 0
-  - _node1: {fileID: 0}
-    _node2: {fileID: 0}
-    _dir: 0
-  - _node1: {fileID: 0}
-    _node2: {fileID: 0}
-    _dir: 0
-  - _node1: {fileID: 0}
-    _node2: {fileID: 0}
-    _dir: 0
-  - _node1: {fileID: 0}
-    _node2: {fileID: 0}
-    _dir: 0
-  - _node1: {fileID: 0}
-    _node2: {fileID: 0}
-    _dir: 0
-  - _node1: {fileID: 0}
-    _node2: {fileID: 0}
-    _dir: 0
-  - _node1: {fileID: 0}
-    _node2: {fileID: 0}
-    _dir: 0
-  - _node1: {fileID: 0}
-    _node2: {fileID: 0}
-    _dir: 0
+  _links:
+  - _node1: {fileID: 1833263382}
+    _node2: {fileID: 177039028}
+    _dir: 1
+  - _node1: {fileID: 177039028}
+    _node2: {fileID: 1627803854}
+    _dir: 1
+  - _node1: {fileID: 177039028}
+    _node2: {fileID: 293255522}
+    _dir: 1
+  - _node1: {fileID: 293255522}
+    _node2: {fileID: 1858619307}
+    _dir: 1
+  - _node1: {fileID: 1858619307}
+    _node2: {fileID: 187837488}
+    _dir: 1
+  - _node1: {fileID: 177039028}
+    _node2: {fileID: 2142459271}
+    _dir: 1
+  - _node1: {fileID: 177039028}
+    _node2: {fileID: 1627803854}
+    _dir: 1
+  - _node1: {fileID: 177039028}
+    _node2: {fileID: 1627803854}
+    _dir: 1
+  - _node1: {fileID: 1627803854}
+    _node2: {fileID: 968416941}
+    _dir: 1
+  - _node1: {fileID: 1482792919}
+    _node2: {fileID: 968416941}
+    _dir: 1
+  - _node1: {fileID: 1627803854}
+    _node2: {fileID: 2142459271}
+    _dir: 1
+  - _node1: {fileID: 187837488}
+    _node2: {fileID: 2142459271}
+    _dir: 1
 --- !u!4 &1484767880
 Transform:
   m_ObjectHideFlags: 0
