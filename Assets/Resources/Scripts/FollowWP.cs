@@ -33,12 +33,22 @@ public class FollowWP : MonoBehaviour
         if (_graph.PathList.Count == 0 || _currentWP == _graph.PathList.Count)
             return;
 
+        DistanceToNode();
+        Move();
+        StopSFX();
+    }
+
+    private void DistanceToNode()
+    {
         if (Vector3.Distance(_graph.PathList[_currentWP].getId().transform.position, transform.position) < _accuracy)
         {
             _currentNode = _graph.PathList[_currentWP].getId();
             _currentWP++;
         }
+    }
 
+    private void Move()
+    {
         if (_currentWP < _graph.PathList.Count)
         {
             _goal = _graph.PathList[_currentWP].getId().transform;
@@ -48,12 +58,14 @@ public class FollowWP : MonoBehaviour
 
             transform.Translate(0, 0, _speed * Time.deltaTime);
         }
-
-        StopSFX();
     }
 
     public void GoToDestination(int destinationIndex)
     {
+        // Verifica se o tanque já está em movimento
+        if (_currentWP < _graph.PathList.Count)
+            return;
+
         switch (destinationIndex)
         {
             case 0: // Heli
