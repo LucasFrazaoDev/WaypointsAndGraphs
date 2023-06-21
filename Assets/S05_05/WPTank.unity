@@ -969,8 +969,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49de8247ca43ac34bb88c8e0b553a602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tank: {fileID: 1761980787}
-  cameras:
+  _tank: {fileID: 1761980787}
+  _cameras:
   - {fileID: 1157254859}
   - {fileID: 93724735}
   - {fileID: 112183315}
@@ -1744,33 +1744,33 @@ MonoBehaviour:
   - {fileID: 1858619307}
   - {fileID: 293255522}
   links:
-  - node1: {fileID: 1833263382}
-    node2: {fileID: 177039028}
-    dir: 1
-  - node1: {fileID: 177039028}
-    node2: {fileID: 1627803854}
-    dir: 1
-  - node1: {fileID: 177039028}
-    node2: {fileID: 293255522}
-    dir: 1
-  - node1: {fileID: 1627803854}
-    node2: {fileID: 968416941}
-    dir: 1
-  - node1: {fileID: 968416941}
-    node2: {fileID: 1482792919}
-    dir: 1
-  - node1: {fileID: 293255522}
-    node2: {fileID: 1858619307}
-    dir: 1
-  - node1: {fileID: 2142459271}
-    node2: {fileID: 187837488}
-    dir: 1
-  - node1: {fileID: 1858619307}
-    node2: {fileID: 187837488}
-    dir: 1
-  - node1: {fileID: 2142459271}
-    node2: {fileID: 1627803854}
-    dir: 1
+  - _node1: {fileID: 0}
+    _node2: {fileID: 0}
+    _dir: 0
+  - _node1: {fileID: 0}
+    _node2: {fileID: 0}
+    _dir: 0
+  - _node1: {fileID: 0}
+    _node2: {fileID: 0}
+    _dir: 0
+  - _node1: {fileID: 0}
+    _node2: {fileID: 0}
+    _dir: 0
+  - _node1: {fileID: 0}
+    _node2: {fileID: 0}
+    _dir: 0
+  - _node1: {fileID: 0}
+    _node2: {fileID: 0}
+    _dir: 0
+  - _node1: {fileID: 0}
+    _node2: {fileID: 0}
+    _dir: 0
+  - _node1: {fileID: 0}
+    _node2: {fileID: 0}
+    _dir: 0
+  - _node1: {fileID: 0}
+    _node2: {fileID: 0}
+    _dir: 0
 --- !u!4 &1484767880
 Transform:
   m_ObjectHideFlags: 0
@@ -2255,8 +2255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92a5182a30dc5f24faaf853eadc87df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wpManager: {fileID: 1484767878}
-  wps: []
+  _wpManager: {fileID: 1484767878}
+  _wps: []
 --- !u!4 &1761980787 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c58838a1d6c17484393fa08cdb7f059d, type: 3}

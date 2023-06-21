@@ -12,8 +12,8 @@ public class Node
     private float _h;
     private Node _cameFrom;
 
-    public List<Edge> EdgeList { get => _edgeList; private set => _edgeList = value; }
-    public Node Path { get => _path; private set => _path = value; }
+    public List<Edge> EdgeList { get => _edgeList; set => _edgeList = value; }
+    public Node Path { get => _path; set => _path = value; }
     public float F { get => _f; set => _f = value; }
     public float G { get => _g; set => _g = value; }
     public float H { get => _h; set => _h = value; }

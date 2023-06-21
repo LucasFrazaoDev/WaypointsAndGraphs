@@ -6,9 +6,9 @@ public class Graph
 {
     private List<Edge> _edges = new List<Edge>();
     private List<Node> _nodes = new List<Node>();
-    [SerializeField] private List<Node> _pathList = new List<Node>();
+    private List<Node> _pathList = new List<Node>();
 
-    public List<Node> PathList { get => _pathList; private set => _pathList = value; }
+    public List<Node> PathList { get => _pathList; set => _pathList = value; }
 
     public Graph() { }
 

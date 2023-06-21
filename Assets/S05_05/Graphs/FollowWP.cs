@@ -52,15 +52,17 @@ public class FollowWP : MonoBehaviour
 
     private void LateUpdate()
     {
+        Debug.Log("Teste 0");
         if (_graph.PathList.Count == 0 || _currentWP == _graph.PathList.Count)
             return;
 
+        Debug.Log("Teste 1");
         if (Vector3.Distance(_graph.PathList[_currentWP].getId().transform.position, transform.position) < _accuracy)
         {
             _currentNode = _graph.PathList[_currentWP].getId();
             _currentWP++;
         }
-
+        Debug.Log("Teste 2");
         if (_currentWP < _graph.PathList.Count)
         {
             _goal = _graph.PathList[_currentWP].getId().transform;
