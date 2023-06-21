@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 143342751}
   - component: {fileID: 143342750}
   - component: {fileID: 143342749}
+  - component: {fileID: 143342753}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -413,6 +414,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &143342753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143342748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 950b2f4ca49d12a4383a66bb08914876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _followWP: {fileID: 1761980786}
+  _buttonRuin: {fileID: 1314068591}
+  _buttonHeli: {fileID: 1748423196}
+  _buttonFactory: {fileID: 1832387641}
+  _buttonOilField: {fileID: 598917113}
 --- !u!1001 &177039027
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -914,14 +932,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538460475}
-  m_LocalRotation: {x: 0.080134206, y: 0.64393, z: -0.0680298, w: 0.75782883}
-  m_LocalPosition: {x: -17.98, y: 2.1425514, z: -11.39}
+  m_LocalRotation: {x: 0.077516586, y: 0.6720005, z: -0.07099811, w: 0.7330524}
+  m_LocalPosition: {x: -18.549, y: 2.1425514, z: -11.785}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 12.068, y: -279.29, z: 0.005}
+  m_LocalEulerAnglesHint: {x: 12.068, y: -274.975, z: 0.005}
 --- !u!1 &552734638
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,7 +1003,7 @@ GameObject:
   - component: {fileID: 598917114}
   - component: {fileID: 598917113}
   m_Layer: 5
-  m_Name: ButtonoilField
+  m_Name: ButtonOilField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1055,19 +1073,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 598917114}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1761980786}
-        m_TargetAssemblyTypeName: FollowWP, Assembly-CSharp
-        m_MethodName: GoToOilField
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &598917114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1589,19 +1595,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1314068592}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1761980786}
-        m_TargetAssemblyTypeName: FollowWP, Assembly-CSharp
-        m_MethodName: GoToRuin
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1314068592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2133,19 +2127,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1748423197}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1761980786}
-        m_TargetAssemblyTypeName: FollowWP, Assembly-CSharp
-        m_MethodName: GoToHeli
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1748423197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2498,19 +2480,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1832387642}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1761980786}
-        m_TargetAssemblyTypeName: FollowWP, Assembly-CSharp
-        m_MethodName: GoToFactory
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1832387642
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Graph
 {
-    private List<Edge> edges = new List<Edge>();
-    private List<Node> nodes = new List<Node>();
-    [SerializeField] private List<Node> pathList = new List<Node>();
+    private List<Edge> _edges = new List<Edge>();
+    private List<Node> _nodes = new List<Node>();
+    [SerializeField] private List<Node> _pathList = new List<Node>();
 
-    public List<Node> PathList { get => pathList; private set => pathList = value; }
+    public List<Node> PathList { get => _pathList; private set => _pathList = value; }
 
     public Graph() { }
 
     public void AddNode(GameObject id)
     {
         Node node = new Node(id);
-        nodes.Add(node);
+        _nodes.Add(node);
     }
 
     public void AddEdge(GameObject fromNode, GameObject toNode)
@@ -26,14 +26,14 @@ public class Graph
         if (from != null && to != null)
         {
             Edge e = new Edge(from, to);
-            edges.Add(e);
+            _edges.Add(e);
             from.EdgeList.Add(e);
         }
     }
 
     private Node FindNode(GameObject id)
     {
-        foreach (Node n in nodes)
+        foreach (Node n in _nodes)
         {
             if(n.getId() == id)
                 return n;
@@ -60,9 +60,9 @@ public class Graph
         float tentativeGScore = 0;
         bool tentativeIsBetter;
 
-        start.g = 0;
-        start.h = Distance(start, end);
-        start.f = start.h;
+        start.G = 0;
+        start.H = Distance(start, end);
+        start.F = start.H;
 
         open.Add(start);
 
@@ -87,13 +87,13 @@ public class Graph
                 if (closed.IndexOf(neighbour) > -1)
                     continue;
 
-                tentativeGScore = thisNode.g + Distance(thisNode, neighbour);
+                tentativeGScore = thisNode.G + Distance(thisNode, neighbour);
                 if(open.IndexOf(neighbour) == -1)
                 {
                     open.Add(neighbour);
                     tentativeIsBetter = true;
                 }
-                else if(tentativeGScore < neighbour.g)
+                else if(tentativeGScore < neighbour.G)
                 {
                     tentativeIsBetter = true;
                 }
@@ -104,10 +104,10 @@ public class Graph
 
                 if(tentativeIsBetter)
                 {
-                    neighbour.cameFrom = thisNode;
-                    neighbour.g = tentativeGScore;
-                    neighbour.h = Distance(neighbour, end);
-                    neighbour.f = neighbour.g + neighbour.h;
+                    neighbour.CameFrom = thisNode;
+                    neighbour.G = tentativeGScore;
+                    neighbour.H = Distance(neighbour, end);
+                    neighbour.F = neighbour.G + neighbour.H;
                 }
             }
         }
@@ -119,11 +119,11 @@ public class Graph
         PathList.Clear();
         PathList.Add(endId);
 
-        var p = endId.cameFrom;
+        var p = endId.CameFrom;
         while (p != startId && p != null)
         {
             PathList.Insert(0, p);
-            p = p.cameFrom;
+            p = p.CameFrom;
         }
         PathList.Insert(0, startId);
     }
@@ -139,13 +139,13 @@ public class Graph
         int count = 0;
         int iteratorCount = 0;
 
-        lowestF = nodes[0].f;
+        lowestF = nodes[0].F;
 
         for (int i = 1; i < nodes.Count; i++)
         {
-            if (nodes[i].f < lowestF)
+            if (nodes[i].F < lowestF)
             {
-                lowestF = nodes[i].f;
+                lowestF = nodes[i].F;
                 iteratorCount = count;
             }
             count++;

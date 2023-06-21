@@ -6,13 +6,13 @@ using UnityEngine;
 public struct Link
 {
     public enum direction { UNI, BI}
-    [SerializeField] GameObject node1;
-    [SerializeField] GameObject node2;
-    [SerializeField] direction dir;
+    [SerializeField] GameObject _node1;
+    [SerializeField] GameObject _node2;
+    [SerializeField] direction _dir;
 
-    public GameObject Node1 { get => node1; private set => node1 = value; }
-    public GameObject Node2 { get => node2; private set => node2 = value; }
-    public direction Dir { get => dir; private set => dir = value; }
+    public GameObject Node1 { get => _node1; private set => _node1 = value; }
+    public GameObject Node2 { get => _node2; private set => _node2 = value; }
+    public direction Dir { get => _dir; private set => _dir = value; }
 }
 
 public class WPManager : MonoBehaviour

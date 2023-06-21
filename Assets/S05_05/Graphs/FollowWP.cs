@@ -5,68 +5,70 @@ using UnityEngine;
 
 public class FollowWP : MonoBehaviour
 {
-    private Transform goal;
-    private float speed = 8.0f;
-    private float accuracy = 5.0f;
-    private float rotSpeed = 2.5f;
+    private Transform _goal;
+    private float _speed = 8.0f;
+    private float _accuracy = 5.0f;
+    private float _rotSpeed = 2.5f;
 
-    [SerializeField] private GameObject wpManager;
-    [SerializeField] private GameObject[] wps;
-    private GameObject currentNode;
-    private int currentWP = 0;
-    private Graph graph;
+    [SerializeField] private GameObject _wpManager;
+    [SerializeField] private GameObject[] _wps;
+    private GameObject _currentNode;
+    private int _currentWP = 0;
+    private Graph _graph;
 
     // Start is called before the first frame update
     private void Start()
     {
-        wps = wpManager.GetComponent<WPManager>().Waypoints;
-        graph = wpManager.GetComponent<WPManager>().Graph;
-        currentNode = wps[0];
+        _wps = _wpManager.GetComponent<WPManager>().Waypoints;
+        _graph = _wpManager.GetComponent<WPManager>().Graph;
+        _currentNode = _wps[0];
     }
 
-    public void GoToHeli()
+    public void GoToDestination(int destinationIndex)
     {
-        graph.AStar(currentNode, wps[0]);
-        currentWP = 0;
-    }
-
-    public void GoToRuin()
-    {
-        graph.AStar(currentNode, wps[7]);
-        currentWP = 0;
-    }
-
-    public void GoToFactory()
-    {
-        graph.AStar(currentNode, wps[2]);
-        currentWP = 0;
-    }
-
-    public void GoToOilField()
-    {
-        graph.AStar(currentNode, wps[5]);
-        currentWP = 0;
+        switch (destinationIndex)
+        {
+            case 0: // Heli
+                _graph.AStar(_currentNode, _wps[destinationIndex]);
+                _currentWP = 0;
+                break;
+            case 7: // Ruin
+                _graph.AStar(_currentNode, _wps[destinationIndex]);
+                _currentWP = 0;
+                break;
+            case 2: // Factory
+                _graph.AStar(_currentNode, _wps[destinationIndex]);
+                _currentWP = 0;
+                break;
+            case 5: // OilField
+                _graph.AStar(_currentNode, _wps[destinationIndex]);
+                _currentWP = 0;
+                break;
+            default:
+                Debug.LogError("Destination index not recognized.");
+                break;
+        }
     }
 
     private void LateUpdate()
     {
-        if (graph.PathList.Count == 0 || currentWP == graph.PathList.Count)
+        if (_graph.PathList.Count == 0 || _currentWP == _graph.PathList.Count)
             return;
 
-        if (Vector3.Distance(graph.PathList[currentWP].getId().transform.position, transform.position) < accuracy)
+        if (Vector3.Distance(_graph.PathList[_currentWP].getId().transform.position, transform.position) < _accuracy)
         {
-            currentNode = graph.PathList[currentWP].getId();
-            currentWP++;
+            _currentNode = _graph.PathList[_currentWP].getId();
+            _currentWP++;
         }
 
-        if (currentWP < graph.PathList.Count)
+        if (_currentWP < _graph.PathList.Count)
         {
-            goal = graph.PathList[currentWP].getId().transform;
-            Vector3 lookAtGoal = new Vector3(goal.position.x, transform.position.y, goal.position.z);
+            _goal = _graph.PathList[_currentWP].getId().transform;
+            Vector3 lookAtGoal = new Vector3(_goal.position.x, transform.position.y, _goal.position.z);
             Vector3 direction = lookAtGoal - transform.position;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * rotSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * _rotSpeed);
 
-            transform.Translate(0, 0, speed * Time.deltaTime);
+            transform.Translate(0, 0, _speed * Time.deltaTime);
         }
     }
 }
