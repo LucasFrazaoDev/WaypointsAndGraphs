@@ -12,6 +12,7 @@ public class FollowWP : MonoBehaviour
     [SerializeField] private GameObject _wpManager;
     [SerializeField] private GameObject[] _wps;
     private AudioSource _tankAudioSource;
+    private ParticleSystem _dustParticles;
     private GameObject _currentNode;
     private int _currentWP = 0;
     private Graph _graph;
@@ -19,6 +20,7 @@ public class FollowWP : MonoBehaviour
     private void Awake()
     {
         _tankAudioSource = GetComponent<AudioSource>();
+        _dustParticles = GetComponentInChildren<ParticleSystem>();
     }
 
     private void Start()
@@ -36,6 +38,7 @@ public class FollowWP : MonoBehaviour
         DistanceToNode();
         Move();
         StopSFX();
+        ToggleDustParticles();
     }
 
     private void DistanceToNode()
@@ -105,6 +108,21 @@ public class FollowWP : MonoBehaviour
         if (_tankAudioSource != null && _tankAudioSource.clip != null && _tankAudioSource.isPlaying && _currentWP == _graph.PathList.Count)
         {
             _tankAudioSource.Stop();
+        }
+    }
+
+    private void ToggleDustParticles()
+    {
+        if (_dustParticles == null)
+            return;
+
+        if (_currentWP < _graph.PathList.Count && !_dustParticles.isPlaying)
+        {
+            _dustParticles.Play();
+        }
+        else if (_currentWP == _graph.PathList.Count && _dustParticles.isPlaying)
+        {
+            _dustParticles.Stop();
         }
     }
 
