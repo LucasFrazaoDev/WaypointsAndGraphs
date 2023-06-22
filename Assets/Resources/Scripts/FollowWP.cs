@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowWP : MonoBehaviour
@@ -15,10 +17,10 @@ public class FollowWP : MonoBehaviour
 
     // Events and delegates for SFX e VFX
     public delegate void TankMoving();
-    public static event TankMoving OnTankMoving;
+    public event TankMoving OnTankMoving;
 
     public delegate void TankStopped();
-    public static event TankStopped OnTankStopped;
+    public event TankStopped OnTankStopped;
 
     private void Start()
     {

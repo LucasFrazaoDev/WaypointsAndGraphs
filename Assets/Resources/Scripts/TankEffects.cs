@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TankEffects : MonoBehaviour
@@ -8,15 +10,15 @@ public class TankEffects : MonoBehaviour
     private void OnEnable()
     {
         // Subscribe methods in events
-        FollowWP.OnTankMoving += PlayEffects;
-        FollowWP.OnTankStopped += StopEffects;
+        GetComponent<FollowWP>().OnTankMoving += PlayEffects;
+        GetComponent<FollowWP>().OnTankStopped += StopEffects;
     }
 
     private void OnDisable()
     {
         // Unsubscribe methods from events
-        FollowWP.OnTankMoving -= PlayEffects;
-        FollowWP.OnTankStopped -= StopEffects;
+        GetComponent<FollowWP>().OnTankMoving -= PlayEffects;
+        GetComponent<FollowWP>().OnTankStopped -= StopEffects;
     }
 
     private void PlayEffects()
