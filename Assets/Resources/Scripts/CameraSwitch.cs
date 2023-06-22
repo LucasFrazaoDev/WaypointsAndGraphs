@@ -8,7 +8,7 @@ public class CameraSwitch : MonoBehaviour
     [SerializeField] private Camera[] _cameras;
     private Camera _activeCamera;
 
-    void Start()
+    private void Start()
     {
         foreach (Camera camera in _cameras)
         {
@@ -16,7 +16,7 @@ public class CameraSwitch : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         _activeCamera = FindActiveCamera();
 
@@ -27,7 +27,7 @@ public class CameraSwitch : MonoBehaviour
         }
     }
 
-    Camera FindActiveCamera()
+    private Camera FindActiveCamera()
     {
         foreach (Camera camera in _cameras)
         {
