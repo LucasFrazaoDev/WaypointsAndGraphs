@@ -33,13 +33,13 @@ public class CameraSwitch : MonoBehaviour
         {
             Vector3 viewportPoint = camera.WorldToViewportPoint(_tank.position);
 
-            // Verifica se o tanque está dentro da área visível da câmera
+            // Checks if the tank is within the camera's visible area
             if (viewportPoint.x >= 0 && viewportPoint.x <= 1 && viewportPoint.y >= 0 && viewportPoint.y <= 1 && viewportPoint.z > 0)
             {
                 return camera;
             }
         }
 
-        return null; // Retorna nulo se o tanque não estiver visível em nenhuma câmera
+        return null; // Returns null if the tank is not visible on any camera
     }
 }

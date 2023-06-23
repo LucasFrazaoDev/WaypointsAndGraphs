@@ -58,7 +58,7 @@ public class FollowWP : MonoBehaviour
 
             transform.Translate(0, 0, _speed * Time.deltaTime);
 
-            // Dispara o evento OnTankMoving quando o tanque está se movendo
+            // Activate the OnTankMoving event when the tank is moving
             if (OnTankMoving != null)
             {
                 OnTankMoving.Invoke();
@@ -66,7 +66,7 @@ public class FollowWP : MonoBehaviour
         }
         else
         {
-            // Dispara o evento OnTankStopped quando o tanque parou de se mover
+            // Activate the OnTankMoving event when the tank stops moving
             if (OnTankStopped != null)
             {
                 OnTankStopped.Invoke();
@@ -76,7 +76,7 @@ public class FollowWP : MonoBehaviour
 
     public void GoToDestination(int destinationIndex)
     {
-        // Verifica se o tanque já está em movimento
+        // Check if the tank is already moving
         if (_currentWP < _graph.PathList.Count)
             return;
 

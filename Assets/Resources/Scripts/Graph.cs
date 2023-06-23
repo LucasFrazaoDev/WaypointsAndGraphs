@@ -78,7 +78,7 @@ public class Graph
 
             open.RemoveAt(i);
             closed.Add(thisNode);
-            Node neighbour; // Nó vizinho ao atual
+            Node neighbour; // Node next to the current one
 
             foreach (Edge e in thisNode.EdgeList)
             {
